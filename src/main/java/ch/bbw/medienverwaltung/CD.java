@@ -1,48 +1,31 @@
 package ch.bbw.medienverwaltung;
 
-public class CD {
-
-	private String title;
+public class CD extends Medium {
 	private String artist;
 	private int numberOfTracks;
 	private int playingTime;
-	private boolean gotIt;
-	private String comment;
 
 	public CD(String title, String artist, int tracks, int playingTime) {
-		this.title = title;
+		super(title, false, "<no comment>", 0);
 		this.artist = artist;
 		this.numberOfTracks = tracks;
 		this.playingTime = playingTime;
-		this.gotIt = false;
-		this.comment = "<no comment>";
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public CD(String title, String artist, int tracks, int playingTime, double price) {
+		super(title, false, "<no comment>", price);
+		this.artist = artist;
+		this.numberOfTracks = tracks;
+		this.playingTime = playingTime;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setOwn(boolean ownIt) {
-		gotIt = ownIt;
-	}
-
-	public boolean getOwn() {
-		return gotIt;
-	}
-
+	@Override
 	public void print() {
-		System.out.print("CD: " + title + " (" + playingTime + " mins)");
-		if (gotIt) {
-			System.out.println("*");
-		} else {
-			System.out.println();
-		}
-		System.out.println("    " + artist);
-		System.out.println("    tracks: " + numberOfTracks);
-		System.out.println("    " + comment);
+		System.out.println("### Klasse CD ###");
+		super.print();
+		System.out.println("Artist: " + artist);
+		System.out.println("Tracks: " + numberOfTracks);
+		System.out.println("Playing Time: " + playingTime + " mins");
+		System.out.println();
 	}
 }

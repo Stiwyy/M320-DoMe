@@ -1,36 +1,23 @@
 package ch.bbw.medienverwaltung;
 
-
 public class MainApplication {
 
 	public static void main(String[] args) {
-
-		System.out.println("Multimediaverwaltung");
-		System.out.println("--------------------");
-		System.out.println();
-		Ranger ranger = new Ranger("Jones", "Peter", "Sergent", 41);
 		Database db = new Database();
+		CD cd1 = new CD("John Norah", "Fall", 13 , 68);
+		cd1.setComment("tolle Musik");
+		cd1.setOwn(true);
+		cd1.setPrice(12.95);
+		Video vd1 = new Video("Lord of the rings", "Jackson", 168);
+		vd1.setPrice(20.50);
+		Book bh1 = new Book("Das Parfüm", "fdij", "978-3-257-22800-7", 4534);
+		bh1.setPrice(9.95);
 
-		// hier ein paar Videos und CD's einfügen
-		// ...
-		CD cd1 = new CD("Jones Norah", "Fall", 13, 68) ;
-		CD cd2 = new CD("Ramones", "Gratest Hits", 20, 90) ;
-		CD cd3 = new CD("Neil Young", "Hitchhiker", 20, 90) ;
-		Video v1 = new Video("Lord of the rings", "Jackson", 186);
-		Video v2 = new Video("Bad Moms 1", "Scott Moore, Jon Lucas", 100);
-		Book bh1 = new Book("huhu", "Oscar", "jfdjtierjsd", 6);
-
-
-		db.addBook(bh1);
-		db.addCD(cd1);
-		db.addCD(cd2);
-		db.addCD(cd3);
-		db.addVideo(v1);
-		db.addVideo(v2);
-		//db.addBook(book);
-		
+		db.addMedia(cd1);
+		db.addMedia(vd1);
+		db.addMedia(bh1);
 		db.printList();
 
-		System.out.println(bh1);
+
 	}
 }
